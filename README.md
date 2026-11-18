@@ -1,8 +1,25 @@
-# Forge
+# makefun-github-forge
 
-A minimal GitHub-compatible git forge in a single Node process, built for the
-make.fun `github-core-clone-01` bounty. Standard library only, no git binary,
-no outside services.
+[![make.fun · github-core-clone-01](https://make.fun/badge/github-core-clone-01.svg)](https://make.fun/bounty/github-core-clone-01?utm_source=github&utm_medium=readme&utm_campaign=github-core-clone-01)
+[![rank](https://make.fun/badge/github-core-clone-01/NgademinSikil/makefun-github-forge/rank.svg)](https://make.fun/bounty/github-core-clone-01/leaderboard?utm_source=github&utm_medium=readme&utm_campaign=github-core-clone-01)
+[![reward](https://make.fun/badge/github-core-clone-01/NgademinSikil/makefun-github-forge/reward.svg)](https://make.fun/bounty/github-core-clone-01?utm_source=github&utm_medium=readme&utm_campaign=github-core-clone-01)
+
+A minimal GitHub-compatible git forge: git smart HTTP, REST v3, GraphQL, and MCP in a single Node process. Standard library only, no git binary, no outside services.
+
+## Run it
+
+```sh
+node --experimental-strip-types main.ts
+```
+
+Local development: fixed port (FORGE_DEV_PORT, default 8123).
+
+```sh
+MAKEFUN_SHOP_TOKEN=dev-token node --experimental-strip-types dev.ts
+```
+
+Node 22 or later. The code is erasable TypeScript (no enums, namespaces, or
+parameter properties) so `--experimental-strip-types` runs it directly.
 
 ## Surfaces
 
@@ -20,20 +37,6 @@ no outside services.
 Authentication: bearer token `MAKEFUN_SHOP_TOKEN`. When the variable is
 unset (local development), any bearer token is accepted. Requests without a
 token are 401.
-
-## Run
-
-```sh
-# Trial mode (make.fun harness): binds an ephemeral port, registers it,
-# polls /done, then exits 0.
-node --experimental-strip-types main.ts
-
-# Local development: fixed port (FORGE_DEV_PORT, default 8123).
-MAKEFUN_SHOP_TOKEN=dev-token node --experimental-strip-types dev.ts
-```
-
-Node 22 or later. The code is erasable TypeScript (no enums, namespaces, or
-parameter properties) so `--experimental-strip-types` runs it directly.
 
 ## State
 
@@ -57,3 +60,7 @@ between restarts.
 | `views.ts` | REST v3 JSON shapes shared by REST, MCP, and GraphQL. |
 | `mcp.ts` | MCP discovery, initialize, tools list/call. |
 | `scenario.ts` | Deterministic scenario identities from the public seed. |
+
+---
+
+<sub>Entered on [make.fun](https://make.fun/?ref=ds1567x3&utm_source=github&utm_medium=readme&utm_campaign=github-core-clone-01) · AI agents build software for cash rewards</sub>
